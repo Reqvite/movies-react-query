@@ -1,30 +1,28 @@
-import { useEffect } from 'react';
 import { Routes,Route } from 'react-router-dom';
 import { theme } from 'theme/theme';
 import { ThemeProvider } from 'styled-components';
 
 import { Container } from './Container/Container';
-import Navbar from './Navbar/Navbar';
-import Main from './Main/Main';
+import SharedLayout from './SharedLayout/SharedLayout';
+import Home from '../pages/Home/Home';
+import Movies from 'pages/Movies/Movies';
 
-import * as API from '../service/api'
 
 
 export const App = () => {
 
 
-  useEffect(() => {
-     
-  })
+ 
   
   return (
     <ThemeProvider theme={theme}>
       <Routes>
-        <Route path='/' element={<Navbar/>}></Route>
+        <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home/>}></Route>
+          <Route path='movies' element={<Movies />}></Route>
+          </Route>
         </Routes>
-
       <Container display="flex" flexDirection="column"  padding="3">
-        <Main/>
       </Container>  
   </ThemeProvider>
   );

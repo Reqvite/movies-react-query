@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { NavLink } from "react-router-dom";
+
 export const Header = styled.header`
 background-color: ${p => p.theme.colors.headerBgColor};
 padding: ${p => p.theme.space[2]}px;
@@ -18,6 +20,6 @@ export const NavListItem = styled.li`
     }
 `
 
-export const NavListItemText = styled.p`
+export const NavListItemLink = styled(NavLink)`
     font-size: ${p => p.theme.fontSizes[4]}px;
 `
