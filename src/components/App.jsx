@@ -1,16 +1,31 @@
+import { useEffect } from 'react';
+import { Routes,Route } from 'react-router-dom';
+import { theme } from 'theme/theme';
+import { ThemeProvider } from 'styled-components';
+
+import { Container } from './Container/Container';
+import Navbar from './Navbar/Navbar';
+import Main from './Main/Main';
+
+import * as API from '../service/api'
+
+
 export const App = () => {
+
+
+  useEffect(() => {
+     
+  })
+  
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <ThemeProvider theme={theme}>
+      <Routes>
+        <Route path='/' element={<Navbar/>}></Route>
+        </Routes>
+
+      <Container display="flex" flexDirection="column"  padding="3">
+        <Main/>
+      </Container>  
+  </ThemeProvider>
   );
 };
