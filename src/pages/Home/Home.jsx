@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
-
+import { TrendingList, TrendingListLink  } from './Home.styled';
 
 import * as API from '../../service/api'
 
+import { Container } from 'components/Container/Container';
 
-const Home = ({ }) => {
+const Home = () => {
     const [data, setData] = useState([]);
     const [loader, setLoader] = useState(false);
     
 
     useEffect(() => {
-    
         if (loader) {
       return
     };
@@ -23,16 +23,18 @@ const Home = ({ }) => {
 
         fetchFilms();
         setLoader(true)
-  })
+  },[data, loader])
 
     return (
         <>
-        <main>
+            <main>
+             <Container display="flex" flexDirection="column"  padding="3">
             <h1>Trending Today</h1>
-                <ul>{data.map(({ title, id }) =>
-                    <li key={id}>{title}</li>
+                <TrendingList>{data.map(({ title, id }) =>
+                    <TrendingListLink to={`${id}`} key={id}>{title}</TrendingListLink>
                 )}     
-            </ul>
+                    </TrendingList>
+                </Container>
             </main>
         </>
     )
