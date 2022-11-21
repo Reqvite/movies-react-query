@@ -31,7 +31,7 @@ const Home = () => {
              <Container display="flex" flexDirection="column"  padding="3">
             <h1>Trending Today</h1>
                 <TrendingList>{data.map(({ title, id }) =>
-                    <TrendingListLink to={`${id}`} key={id}>{title}</TrendingListLink>
+                    <TrendingListLink to={`movies/${id}`} key={id}>{title}</TrendingListLink>
                 )}     
                     </TrendingList>
                 </Container>

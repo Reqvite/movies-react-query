@@ -3,7 +3,7 @@ import { Header, NavList, NavListItem, NavListItemLink } from "./SharedLayout.st
 
 
 
-const SharedLayout = ({ }) => {
+const SharedLayout = () => {
     
     return (
         <>

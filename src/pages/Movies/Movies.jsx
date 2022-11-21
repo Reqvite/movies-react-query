@@ -1,6 +1,6 @@
 
 
-const Movies = ({ }) => {
+const Movies = () => {
     
 
 
