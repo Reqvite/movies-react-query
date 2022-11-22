@@ -4,12 +4,14 @@ import { TrendingList, TrendingListLink  } from './Home.styled';
 import * as API from '../../service/api'
 
 import { Container } from 'components/Container/Container';
+import { useLocation } from 'react-router-dom';
 
 const Home = () => {
     const [data, setData] = useState([]);
     const [loader, setLoader] = useState(false);
+    const location = useLocation()
     
-
+   
     useEffect(() => {
         if (loader) {
       return
@@ -17,13 +19,13 @@ const Home = () => {
 
     const fetchFilms = async () => {
       const resp = await API.fetchTrendingMovies()
-        setData([...data, ...resp.data.results])
+        setData([...resp.data.results])
         console.log(resp);
      }
-
+    
         fetchFilms();
         setLoader(true)
-  },[data, loader])
+  },[data, loader, location])
 
     return (
         <>

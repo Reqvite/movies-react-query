@@ -8,3 +8,14 @@ export const fetchTrendingMovies = async () => {
     return await axios.get(`https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`);
 }
 
+export const fetchFilmDetails = async id => {
+ return  await  axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`)
+}
+
+export const fetchCredits = async id => {
+    return await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`)
+}
+
+export const fetchReviews = async id => {
+    return await axios.get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
+}
