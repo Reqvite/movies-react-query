@@ -56,4 +56,16 @@ export const AdditionalInfoLink = styled(NavLink)`
     &:not(:first-child){
         margin-left: 20px;
     }
+
+     &.active {
+       
+    color: ${p => p.theme.colors.hoverColor};
+
+  }
+
+  :hover:not(.active),
+  :focus-visible:not(.active){
+     color: ${p => p.theme.colors.hoverColor};
+  }
+
 `

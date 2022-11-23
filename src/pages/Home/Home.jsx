@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { TrendingList, TrendingListLink  } from './Home.styled';
+import { TrendingList, TrendingListItem, TrendingListLink  } from './Home.styled';
 
 import * as API from '../../service/api'
 
@@ -32,8 +32,8 @@ const Home = () => {
             <main>
              <Container display="flex" flexDirection="column"  padding="3">
             <h1>Trending Today</h1>
-                <TrendingList>{data.map(({ title, id }) =>
-                    <TrendingListLink to={`movies/${id}`} key={id}>{title}</TrendingListLink>
+                    <TrendingList>{data.map(({ title, id }) =>
+                    <TrendingListItem key={id}><TrendingListLink to={`movies/${id}`}>{title}</TrendingListLink></TrendingListItem>
                 )}     
                     </TrendingList>
                 </Container>

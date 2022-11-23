@@ -18,12 +18,10 @@ const Reviews = () => {
 
         }
         getReviews()
-    },[id])
-
-
+    }, [id])
+    
     if (!reviews) return 
-  
-    console.log(reviews)
+
     return (
         reviews.data.results.length !== 0
         ? (<ReviewList>

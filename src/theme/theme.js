@@ -6,7 +6,7 @@ export const theme = {
 
 
     headerBgColor: '#D5DBDB',
-    hoverColor: '#909fe4',
+    hoverColor: '#904fe9',
     },
   fonts: {
     body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
