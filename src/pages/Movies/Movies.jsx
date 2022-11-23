@@ -3,38 +3,45 @@ import { useSearchParams } from "react-router-dom";
 
 import * as API from '../../service/api'
 
+import { Container } from "components/Container/Container";
+import FilmList from "components/FilmList/FilmList";
+
 const Movies = () => {
 
-    const [searchParams, setSearchParams] = useSearchParams('')
+    const [searchParams, setSearchParams] = useSearchParams()
     const [queryFilms, setQueryFilms] = useState(null)
+     const [loader, setLoader] = useState(true);
 
-       const query = searchParams.get('query')
-  
+    const query = searchParams.get('query');
+    
+ 
     useEffect(() => {
-
+        if (loader) {
+      return
+        };
         const getQueryFilms = async () => {
-
+         
            const resp = await API.fetchQueryFilms(query)
-
+           
+           
             setQueryFilms([...resp.data.results])
         }
 
         getQueryFilms()
+        setLoader(true)
 
-    },[query, searchParams])
+    },[loader, query])
 
  
 
     const handleSubmit = e => {
         e.preventDefault()
-        setSearchParams({query: e.target.elements[0].value })
+        setSearchParams({ query: e.target.elements[0].value })
+        setLoader(false)
     }
 
-
-    if (!queryFilms) return
-    
-    console.log(queryFilms);
     return (
+        <Container display="flex" flexDirection="column"  padding="3">
             <form onSubmit={handleSubmit}>
          <label
         htmlFor="query"
@@ -46,7 +53,9 @@ const Movies = () => {
         />
             </label>
             <button type="submit" >Search</button>
-         </form>      
+        </form>   
+            {!queryFilms ? null : <FilmList data={queryFilms}/> }
+         </Container>
     )
 }
 

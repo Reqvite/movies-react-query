@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { TrendingList, TrendingListItem, TrendingListLink  } from './Home.styled';
 
 import * as API from '../../service/api'
 
 import { Container } from 'components/Container/Container';
+import FilmList from 'components/FilmList/FilmList';
 import { useLocation } from 'react-router-dom';
 
 const Home = () => {
@@ -32,10 +32,7 @@ const Home = () => {
             <main>
              <Container display="flex" flexDirection="column"  padding="3">
             <h1>Trending Today</h1>
-                    <TrendingList>{data.map(({ title, id }) =>
-                    <TrendingListItem key={id}><TrendingListLink to={`movies/${id}`}>{title}</TrendingListLink></TrendingListItem>
-                )}     
-                    </TrendingList>
+                    <FilmList data={data}/>
                 </Container>
             </main>
         </>

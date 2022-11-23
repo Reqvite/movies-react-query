@@ -23,15 +23,15 @@ const [cast, setCast] = useState(null)
 
       
     return (
-        <>
-            <CastList>
+          cast.data.cast.length !== 0
+           ?(<CastList>
                 {cast.data.cast.map(actor => (
                     <CastListItem key={actor.id}>
                      <Actor actor={actor} />
              </CastListItem>
                 ))}
-           </CastList>
-        </>
+            </CastList>) 
+            : <p>Sorry, there are no reviews for this movie.</p>   
     )
 }
 
