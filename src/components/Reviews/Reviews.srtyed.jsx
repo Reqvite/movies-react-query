@@ -6,5 +6,5 @@ export const ReviewList = styled.ul`
 `
 
 export const ErrorMessage = styled.ul`
-     padding: ${p => p.theme.space[2]}px;
+     margin-top: ${p => p.theme.space[2]}px;
 `

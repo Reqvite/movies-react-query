@@ -8,19 +8,19 @@ export const Box = styled.div`
     padding: ${p => p.theme.space[2]}px;
 
 
-    border: ${p => p.theme.borders.mainBorder};
-    border-right: none;
-    border-left: none;
+    box-shadow: ${p => p.theme.shadows.mainShadow};
+    border-radius: 5px;
     
 `
 
 export const Img = styled.img`
+   margin-top: ${p => p.theme.space[2]}px;  
     width: 400px;
     height: 500px;
     object-fit: contain;
 `
 export const DetailsBox = styled.div`
-    padding: ${p => p.theme.space[2]}px;
+    margin-left: 10px;
 `
 
 export const Title = styled.h3`
@@ -39,12 +39,11 @@ export const Text = styled.p`
 `
 
 export const AdditionalInfo = styled.div`
-     padding: ${p => p.theme.space[2]}px;
+    
 `
 
 export const AdditionalInfoList = styled.ul` 
 
-    padding: ${p => p.theme.space[1]}px;
     margin-top: ${p => p.theme.space[2]}px;
 `
 

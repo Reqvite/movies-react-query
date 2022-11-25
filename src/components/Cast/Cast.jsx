@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { CastList, CastListItem } from "./Cast.styled";
+import { CastList, CastListItem, ErrorMessage } from "./Cast.styled";
 import * as API from '../../service/api'
 
 import Actor from "../Actor/Actor";
@@ -32,7 +32,7 @@ const [cast, setCast] = useState(null)
              </CastListItem>
                 ))}
             </CastList>) 
-            : <p>Sorry, there are no reviews for this movie.</p>   
+            : <ErrorMessage>Sorry, we can't find a cast for this movie..</ErrorMessage>   
     )
 }
 

@@ -2,7 +2,6 @@ import { Img, Box, Text  } from "./Actor.styled";
 
 
 const Actor = ({actor}) => {
-    console.log(actor);
     const { profile_path, name, character } = actor;
    
     let img;

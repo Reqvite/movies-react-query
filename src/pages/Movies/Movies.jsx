@@ -10,17 +10,17 @@ const Movies = () => {
 
     const [searchParams, setSearchParams] = useSearchParams()
     const [queryFilms, setQueryFilms] = useState(null)
-     const [loader, setLoader] = useState(true);
+
 
     const query = searchParams.get('query');
     
  
     useEffect(() => {
-        if (loader) {
-      return
-        };
+      if (!query) return;
+
         const getQueryFilms = async () => {
          
+          
            const resp = await API.fetchQueryFilms(query)
            
            
@@ -28,16 +28,16 @@ const Movies = () => {
         }
 
         getQueryFilms()
-        setLoader(true)
 
-    },[loader, query])
+
+    },[query])
 
  
 
     const handleSubmit = e => {
         e.preventDefault()
         setSearchParams({ query: e.target.elements[0].value })
-        setLoader(false)
+
     }
 
     return (

@@ -34,7 +34,7 @@ export const theme = {
     caps: '0.2em',
   },
   borders: {
-    mainBorder: ' 2px solid #38322f;',
+    mainBorder: ' 2px solid gray;',
   },
   shadows: {
       mainShadow:'rgb(38, 57, 77) 0px 20px 30px -10px'

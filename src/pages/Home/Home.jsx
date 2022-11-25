@@ -4,12 +4,10 @@ import * as API from '../../service/api'
 
 import { Container } from 'components/Container/Container';
 import FilmList from 'components/FilmList/FilmList';
-import { useLocation } from 'react-router-dom';
 
 const Home = () => {
     const [data, setData] = useState([]);
     const [loader, setLoader] = useState(false);
-    const location = useLocation()
     
    
     useEffect(() => {
@@ -20,12 +18,11 @@ const Home = () => {
     const fetchFilms = async () => {
       const resp = await API.fetchTrendingMovies()
         setData([...resp.data.results])
-        console.log(resp);
      }
     
         fetchFilms();
         setLoader(true)
-  },[data, loader, location])
+  },[data, loader])
 
     return (
         <>
