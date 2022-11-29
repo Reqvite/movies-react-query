@@ -54,8 +54,8 @@ const MovieDetails = () => {
             <AdditionalInfo>
                 <SecondaryTitle>Additional information</SecondaryTitle>
                <AdditionalInfoList>
-                <AdditionalInfoLink to="cast" state={{ from: "/movies" }}>Cast</AdditionalInfoLink>
-                <AdditionalInfoLink to="reviews" state={{ from: "/movies" }}>Reviews</AdditionalInfoLink>
+                <AdditionalInfoLink to="cast" >Cast</AdditionalInfoLink>
+                <AdditionalInfoLink to="reviews" >Reviews</AdditionalInfoLink>
                </AdditionalInfoList> 
             </AdditionalInfo>
                 <Outlet />
