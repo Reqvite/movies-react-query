@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
+
 import { Name, Text } from "./Review.styled";
 
 
-const  Review = ({ review }) => {
-    const { author, content } = review;
-
+const  Review = ({ author, content }) => {
+  
     return (
         <>
             <Name>Author: {author}</Name>
@@ -14,3 +15,8 @@ const  Review = ({ review }) => {
 
 
 export default Review;
+
+Review.propTypes = {
+    author: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+}

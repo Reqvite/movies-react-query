@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { BackBtnLink } from "./BackBtn.styled"
 
 
@@ -8,4 +9,8 @@ export const BackBtn = ({ location }) => {
             <BackBtnLink to={backLinkHref}>Back</BackBtnLink>
        </>
     )
+}
+
+BackBtn.propTypes = {
+    location: PropTypes.object.isRequired,
 }

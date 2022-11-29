@@ -25,8 +25,8 @@ const Reviews = () => {
     return (
         reviews.data.results.length !== 0
         ? (<ReviewList>
-                {reviews.data.results.map(review => (
-                    <li key={review.id}><Review  review={review} /></li>  
+                {reviews.data.results.map(({id, ...otherProps}) => (
+                    <li key={id}><Review {...otherProps} /></li>  
                 ))}
             </ReviewList >)
         :<ErrorMessage>Sorry, there are no reviews for this movie.</ErrorMessage>    

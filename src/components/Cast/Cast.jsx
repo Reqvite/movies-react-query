@@ -26,9 +26,9 @@ const [cast, setCast] = useState(null)
     return (
           cast.data.cast.length !== 0
            ?(<CastList>
-                {cast.data.cast.map(actor => (
-                    <CastListItem key={actor.id}>
-                     <Actor actor={actor} />
+                {cast.data.cast.map(({id, ...otherProps}) => (
+                    <CastListItem key={id}>
+                     <Actor {...otherProps} />
              </CastListItem>
                 ))}
             </CastList>) 

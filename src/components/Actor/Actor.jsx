@@ -1,9 +1,10 @@
-import { Img, Box, Text  } from "./Actor.styled";
+import PropTypes from 'prop-types';
+
+import { Img, Box, Text } from "./Actor.styled";
 
 
-const Actor = ({actor}) => {
-    const { profile_path, name, character } = actor;
-   
+const Actor = ({ profile_path, name, character }) => {
+    
     let img;
     profile_path 
         ? img = `https://www.themoviedb.org/t/p/w500/${profile_path}`
@@ -21,3 +22,9 @@ const Actor = ({actor}) => {
 
 
 export default Actor;
+
+Actor.propTypes = {
+    profile_path: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    character: PropTypes.string.isRequired,
+}
