@@ -1,36 +1,25 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { ReviewList, ErrorMessage } from "./Reviews.srtyed";
+import { useParams } from 'react-router-dom';
+import { ReviewList, ErrorMessage } from './Reviews.srtyed';
 
-import Review from "./Review/Review";
+import Review from './Review/Review';
 
-import * as API from '../../service/api'
-
+import { useGetFetchQuery } from 'hooks/useGetFetchQuery';
 const Reviews = () => {
-    const {id} = useParams()
-    const [reviews, setReviews] = useState(null)
+  const { id } = useParams();
 
-    useEffect(() => {
+  const reviews = useGetFetchQuery(['movieReviews', id]);
 
-        const getReviews = async () => {
-
-            setReviews(await API.fetchReviews(id))
-
-        }
-        getReviews()
-    }, [id])
-    
-    if (!reviews) return 
-
-    return (
-        reviews.data.results.length !== 0
-        ? (<ReviewList>
-                {reviews.data.results.map(({id, ...otherProps}) => (
-                    <li key={id}><Review {...otherProps} /></li>  
-                ))}
-            </ReviewList >)
-        :<ErrorMessage>Sorry, there are no reviews for this movie.</ErrorMessage>    
-    )
-}
+  return reviews?.data.results.length !== 0 ? (
+    <ReviewList>
+      {reviews?.data.results.map(({ id, ...otherProps }) => (
+        <li key={id}>
+          <Review {...otherProps} />
+        </li>
+      ))}
+    </ReviewList>
+  ) : (
+    <ErrorMessage>Sorry, there are no reviews for this movie.</ErrorMessage>
+  );
+};
 
 export default Reviews;

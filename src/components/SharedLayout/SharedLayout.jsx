@@ -1,33 +1,43 @@
-import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
-
-import { Loader } from "components/Loader/Loader";
-
-import { Header, NavList, NavListItem, NavListItemLink } from "./SharedLayout.styled";
-
-
+import { Suspense } from 'react';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { AppBar, Link, List, ListItem } from '@mui/material';
 
 const SharedLayout = () => {
-    
-    return (
-        <>
-        <Header>
-            <nav>
-          <NavList >
-            <NavListItem>
-                <NavListItemLink to="/">Home</NavListItemLink>
-            </NavListItem>
-            <NavListItem>
-                <NavListItemLink to="movies">Movie</NavListItemLink>
-            </NavListItem>
-            </NavList>  
-            </nav>
-            </Header>
-            <Suspense fallback={<Loader/>}>
-                <Outlet />
-            </Suspense>
-        </>
-    )
-}
+  const location = useLocation();
+
+  return (
+    <>
+      <AppBar position="static" sx={{ background: 'gray' }}>
+        <nav>
+          <List sx={{ display: 'flex' }}>
+            <ListItem sx={{ maxWidth: 100 }}>
+              <Link
+                as={NavLink}
+                to="/"
+                sx={{ color: location.pathname === '/' ? 'yellow' : 'black' }}
+              >
+                Home
+              </Link>
+            </ListItem>
+            <ListItem sx={{ maxWidth: 100 }}>
+              <Link
+                as={NavLink}
+                to="/movies"
+                sx={{
+                  color: location.pathname === '/movies' ? 'yellow' : 'black',
+                }}
+              >
+                Movies
+              </Link>
+            </ListItem>
+          </List>
+        </nav>
+      </AppBar>
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
+    </>
+  );
+};
 
 export default SharedLayout;
